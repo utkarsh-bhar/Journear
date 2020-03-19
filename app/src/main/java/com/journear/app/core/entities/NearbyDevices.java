@@ -1,4 +1,4 @@
 package com.journear.app.core.entities;
 
-public class NearbyTraveller {
-}
+    public class NearbyDevices {
+    }

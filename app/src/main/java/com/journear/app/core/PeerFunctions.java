@@ -1,4 +1,4 @@
 package com.journear.app.core;
 
-public class NearbyDevices {
+public class PeerFunctions {
 }
