@@ -42,4 +42,5 @@ public class LoginActivity {
     public final void username_InvalidCharacters() {
         Assert.assertEquals("Incorrect username, please try again", "username", "u$ern@me");
     }
+
 }
