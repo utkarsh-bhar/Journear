@@ -1,6 +1,7 @@
-package com.journear.app.core.entities;
+package com.journear.app;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.journear.app.R;
+import com.journear.app.core.entities.NearbyDevices;
+import com.journear.app.core.entities.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,16 +26,19 @@ public class JourneyViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        Intent intent = getIntent();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        devicesList = new ArrayList<NearbyDevices>();
+        devicesList = new ArrayList<>();
         NearbyDevices dev = new NearbyDevices("Trinity College Dublin" , "Dublin Spire" , "8hours", "4.5");
+        NearbyDevices dev2 = new NearbyDevices("Ram Bhature Wala" , "Karol Bagh" , "8hours", "4.5");
 
         devicesList.add(dev);
+        devicesList.add(dev2);
         //TODO Nikhil Sujit
         // devicesList = some source for the data.
 

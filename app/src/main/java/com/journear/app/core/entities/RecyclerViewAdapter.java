@@ -1,6 +1,7 @@
 package com.journear.app.core.entities;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
    private Context context;
    private List<NearbyDevices> devicesList;
     public RecyclerViewAdapter(Context context, List<NearbyDevices> devicesList) {
+        this.devicesList = devicesList;
+        this.context = context;
     }
 
     @NonNull
@@ -34,11 +37,12 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
             NearbyDevices devices = devicesList.get(position);
+            holder.userName.setText(Build.MANUFACTURER);
             holder.source.setText(devices.getSource());
-            holder.source.setText(devices.getDestination());
-            holder.source.setText(devices.getTravelTime());
+            holder.destination.setText(devices.getDestination());
+            holder.travelTime.setText(devices.getTravelTime());
     }
-
+// one for just testing deviceslist.size()
     @Override
     public int getItemCount() {
         return devicesList.size();
@@ -48,6 +52,7 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
         public TextView source;
         public TextView destination;
         public TextView travelTime;
+        public TextView userName;
         public TextView user_rating;
         public Button findSource;
         public Button findRoute;
@@ -57,6 +62,7 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
         public ViewHolder(@NonNull View devicesList , Context ctx) {
             super(devicesList);
             context = ctx;
+            userName = devicesList.findViewById(R.id.user_name);
             source = devicesList.findViewById(R.id.source);
             destination = devicesList.findViewById(R.id.destination);
             travelTime = devicesList.findViewById(R.id.travelTime);

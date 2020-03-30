@@ -14,27 +14,27 @@
             android:layout_height="match_parent"
             android:padding="15dp">
             <TextView
-                android:id="@+id/item_name"
+                android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
+
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
+                android:layout_below="@+id/user_name"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
+                android:textStyle="italic" />
             <TextView
                 android:id="@+id/destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/source"
                 android:paddingTop="4dp"
-                android:text="@string/app_name"
+
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/destination"
-                android:text="@string/app_name"
+
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
