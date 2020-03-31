@@ -31,16 +31,12 @@ public class CreateJourneyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_journey);
 
-        ArrayList<JnGeocodeItem> geocodeItems =  JnGeocoder.GetGeocodingListForRegion("ie", this);
-        // initialize the list for autocomplete for geocoding
-        ArrayAdapter<JnGeocodeItem> geocodingAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_dropdown_item_1line, geocodeItems);
 
         final AutoCompleteTextView sourceTextView = findViewById(R.id.acTextView_source);
         final AutoCompleteTextView destinationTextView = findViewById(R.id.acTextView_destination);
 
-        configureAutoCompleteTextViewForSearch(sourceTextView, geocodingAdapter);
-        configureAutoCompleteTextViewForSearch(destinationTextView, geocodingAdapter);
+        configureAutoCompleteTextViewForSearch(sourceTextView, "ie");
+        configureAutoCompleteTextViewForSearch(destinationTextView, "ie");
 
         findViewById(R.id.btn_CreateJourney).setOnClickListener(new View.OnClickListener() {
 
@@ -53,6 +49,10 @@ public class CreateJourneyActivity extends AppCompatActivity {
 
                 if(mapTextValueToJnGeoCodeItem.containsKey(source) && mapTextValueToJnGeoCodeItem.containsKey(destination))
                 {
+                    JnGeocodeItem s = mapTextValueToJnGeoCodeItem.get(source);
+                    JnGeocodeItem d = mapTextValueToJnGeoCodeItem.get(destination);
+                    Log.i("SELECTION", "Source: " + s.latitude + ", " + s.longitude);
+                    Log.i("SELECTION", "Destination: " + d.latitude + ", " + d.longitude);
                     Log.i("SELECTION", "Safe to Proceed");
                 }
 
@@ -60,7 +60,12 @@ public class CreateJourneyActivity extends AppCompatActivity {
         });
     }
 
-    private void configureAutoCompleteTextViewForSearch(AutoCompleteTextView actv, final ArrayAdapter<JnGeocodeItem> adapter){
+    private void configureAutoCompleteTextViewForSearch(AutoCompleteTextView actv, String region){
+        ArrayList<JnGeocodeItem> geocodeItems =  JnGeocoder.GetGeocodingListForRegion(region, this);
+        // initialize the list for autocomplete for geocoding
+        final ArrayAdapter<JnGeocodeItem> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, geocodeItems);
+
         actv.setAdapter(adapter);
       actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
