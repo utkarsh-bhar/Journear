@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:id="@+id/layout_id"
+    android:orientation="vertical"
     android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title"
+                android:text="Enter details"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <AutoCompleteTextView
+                android:id="@+id/acTextView_source"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/title"
+                android:layout_height="wrap_content"
+
+                android:completionHint="Source location"
+                android:completionThreshold="0"
+                android:hint="Source"
+               />
+
+            <AutoCompleteTextView
+                android:id="@+id/acTextView_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/acTextView_source"
+                android:completionHint="Destination location"
+                android:completionThreshold="0"
+                android:hint="Destination"
+                />
+
+            <EditText
+                android:id="@+id/rideScheduleTime"
+                android:layout_below="@+id/acTextView_destination"
+                android:hint="Time of Ride"
+                android:inputType="datetime"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_CreateJourney"
+                android:layout_below="@+id/rideScheduleTime"
+                android:layout_marginEnd="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Add Trip"
+                android:layout_width="match_parent"
+                android:background="@color/colorAccent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
