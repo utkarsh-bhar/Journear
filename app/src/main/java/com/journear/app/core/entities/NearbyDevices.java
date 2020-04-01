@@ -1,6 +1,13 @@
 package com.journear.app.core.entities;
 
-public class NearbyDevices {
+
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class NearbyDevices implements Parcelable {
         private int id;
         private String source;
         private String destination;
@@ -17,7 +24,12 @@ public class NearbyDevices {
             this.user_rating = user_rating;
         }
 
+      public NearbyDevices(String source,String destination, String travelTime){
+            this.source = source;
+            this.destination = destination;
+            this.travelTime = travelTime;
 
+        }
 
         public NearbyDevices(int id, String source, String destination, String travelTime, String user_rating){
             this.id = id;
@@ -28,7 +40,28 @@ public class NearbyDevices {
 
         }
 
-        public int getId() {
+
+    protected NearbyDevices(Parcel in) {
+
+        source = in.readString();
+        destination = in.readString();
+        travelTime = in.readString();
+
+    }
+
+    public static final Creator<NearbyDevices> CREATOR = new Creator<NearbyDevices>() {
+        @Override
+        public NearbyDevices createFromParcel(Parcel in) {
+            return new NearbyDevices(in);
+        }
+
+        @Override
+        public NearbyDevices[] newArray(int size) {
+            return new NearbyDevices[size];
+        }
+    };
+
+    public int getId() {
             return id;
         }
 
@@ -68,4 +101,18 @@ public class NearbyDevices {
             this.user_rating = user_rating;
         }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(source);
+        dest.writeString(destination);
+        dest.writeString(travelTime);
+
+    }
+}

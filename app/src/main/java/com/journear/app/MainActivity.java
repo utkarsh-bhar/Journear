@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.journear.app.ui.CreateJourneyActivity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, JourneyViewActivity.class);
+                Intent myIntent = new Intent(MainActivity.this, CreateJourneyActivity.class);
                 MainActivity.this.startActivity(myIntent);
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();

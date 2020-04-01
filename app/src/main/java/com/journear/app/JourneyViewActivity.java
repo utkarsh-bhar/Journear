@@ -27,6 +27,10 @@ public class JourneyViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         Intent intent = getIntent();
+        NearbyDevices nd = intent.getParcelableExtra("EXTRA");
+//                Bundle args = intent.getBundleExtra("BUNDLE");
+//        ArrayList<NearbyDevices> devicesList1 = (ArrayList<NearbyDevices>) intent.getSerializableExtra("ARRAYLIST");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         recyclerView = findViewById(R.id.recyclerview);
@@ -34,11 +38,14 @@ public class JourneyViewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         devicesList = new ArrayList<>();
+
         NearbyDevices dev = new NearbyDevices("Trinity College Dublin" , "Dublin Spire" , "8hours", "4.5");
         NearbyDevices dev2 = new NearbyDevices("Ram Bhature Wala" , "Karol Bagh" , "8hours", "4.5");
-
+        NearbyDevices dev3 = new NearbyDevices(nd.getSource() , nd.getDestination() , nd.getTravelTime());
         devicesList.add(dev);
         devicesList.add(dev2);
+        devicesList.add(dev3);
+
         //TODO Nikhil Sujit
         // devicesList = some source for the data.
 
