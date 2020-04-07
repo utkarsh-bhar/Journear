@@ -1,26 +1,80 @@
 package com.journear.app.core.entities;
 
-public class User {
-    private int userID;
-    private int userRatings;
+import com.journear.app.core.interfaces.Persistable;
+
+public class User implements Persistable {
+
+
+    public String userName;
+    public String email;
+    public String password;
+
+
+
+    public String phoneValue;
+    public String dobValue;
+    public String gender;
 
     public User(){
 
     }
 
-    public int getUserID() {
-        return userID;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserID(int userID) {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String userID;
+
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
-    public int getUserRatings() {
-        return userRatings;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserRatings(int userRatings) {
-        this.userRatings = userRatings;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneValue() {
+        return phoneValue;
+    }
+
+    public void setPhoneValue(String phoneValue) {
+        this.phoneValue = phoneValue;
+    }
+
+    public String getDobValue() {
+        return dobValue;
+    }
+
+    public void setDobValue(String dobValue) {
+        this.dobValue = dobValue;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
+
+
+
 }

@@ -13,6 +13,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.journear.app.core.PersistentStore;
+import com.journear.app.core.entities.User;
+import com.journear.app.core.interfaces.Persistable;
 import com.journear.app.ui.CreateJourneyActivity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        boolean loggedIn = checkUserLogon();
+        // if needs be check the value of loggedIn and stop further execution from here
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +60,17 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private boolean checkUserLogon() {
+        User currentUser = (User) PersistentStore.getInstance(MainActivity.this).getItem("registeredUser", User.class);
+        if(currentUser == null)
+        {
+            Intent intentToLetUserLogon = new Intent(MainActivity.this,StartActivity.class);
+            startActivity(intentToLetUserLogon);
+            return false;
+        }
+        return true;
     }
 
     @Override
