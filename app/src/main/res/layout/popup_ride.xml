@@ -40,21 +40,34 @@
                 android:hint="Destination"
                 />
 
-            <EditText
+   <!--         <TimePicker
                 android:id="@+id/rideScheduleTime"
                 android:layout_below="@+id/acTextView_destination"
-                android:hint="Time of Ride"
-                android:inputType="datetime"
                 android:layout_width="match_parent"
 
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"/> -->
+
+            <TextView
+                android:id="@+id/btn_setTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time of Journey"
+                android:hint="My hint"
+                android:textColor="?attr/editTextColor"
+                android:layout_below="@+id/acTextView_destination"
+                android:background="?attr/editTextBackground"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                />
+
 
             <Button
                 android:id="@+id/btn_CreateJourney"
-                android:layout_below="@+id/rideScheduleTime"
+                android:layout_below="@+id/btn_setTime"
                 android:layout_marginEnd="5dp"
                 android:textSize="14sp"
                 android:textStyle="bold"
+                android:layout_marginTop="15dp"
                 android:text="Add Trip"
                 android:layout_width="match_parent"
                 android:background="@color/colorAccent"

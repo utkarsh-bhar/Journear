@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.journear.app.core.PersistentStore;
+import com.journear.app.core.entities.StringWrapper;
 import com.journear.app.core.entities.User;
 import com.journear.app.core.interfaces.Persistable;
 import com.journear.app.ui.CreateJourneyActivity;
@@ -24,6 +25,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
+
+import java.io.StringWriter;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         boolean loggedIn = checkUserLogon();
+        if(!loggedIn)
+            finish();
         // if needs be check the value of loggedIn and stop further execution from here
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -63,14 +70,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean checkUserLogon() {
-        User currentUser = (User) PersistentStore.getInstance(MainActivity.this).getItem("registeredUser", User.class);
+        Persistable currentUser = PersistentStore.getInstance(MainActivity.this).getItem("currentUser", StringWrapper.class);
         if(currentUser == null)
         {
             Intent intentToLetUserLogon = new Intent(MainActivity.this,StartActivity.class);
             startActivity(intentToLetUserLogon);
             return false;
         }
+        decorateUiForUser();
         return true;
+    }
+
+    private void decorateUiForUser() {
+        StringWrapper currentUser = (StringWrapper) PersistentStore.getInstance(MainActivity.this).getItem("currentUser", StringWrapper.class);
+        // Todo: Fetch the user details from server over here and user that to set the environment
+//        TextView tv =findViewById(R.id.nav_view).findViewById(R.id.textView);
+//        tv.setText(currentUser.toString());
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.userNameTextView);
+        navUsername.setText(currentUser.toString());
     }
 
     @Override

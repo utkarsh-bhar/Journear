@@ -2,18 +2,12 @@ package com.journear.app.core.entities;
 
 import com.journear.app.core.interfaces.Persistable;
 
-public class User implements Persistable {
+public class User extends UserSkimmed implements Persistable {
 
-
-    public String userName;
     public String email;
     public String password;
-
-
-
     public String phoneValue;
     public String dobValue;
-    public String gender;
 
     public User(){
 
@@ -33,14 +27,6 @@ public class User implements Persistable {
         this.userID = userID;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -49,7 +35,7 @@ public class User implements Persistable {
         this.email = email;
     }
 
-    public String getPhoneValue() {
+    public String getPhone() {
         return phoneValue;
     }
 
@@ -57,20 +43,12 @@ public class User implements Persistable {
         this.phoneValue = phoneValue;
     }
 
-    public String getDobValue() {
+    public String getDob() {
         return dobValue;
     }
 
     public void setDobValue(String dobValue) {
         this.dobValue = dobValue;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
 

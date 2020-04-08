@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
             holder.userName.setText(Build.MANUFACTURER);
             holder.source.setText(devices.getSource());
             holder.destination.setText(devices.getDestination());
-            holder.travelTime.setText(devices.getTravelTime());
+            holder.travelTime.setText(devices.getTravelTime().toString());
     }
 // one for just testing deviceslist.size()
     @Override

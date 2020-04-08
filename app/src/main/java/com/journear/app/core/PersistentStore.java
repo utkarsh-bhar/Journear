@@ -3,11 +3,10 @@ package com.journear.app.core;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import com.google.gson.Gson;
 import com.journear.app.core.db.SqliteDbHelper;
-import com.journear.app.core.entities.DuplicateItemException;
+import com.journear.app.core.entities.StringWrapper;
 import com.journear.app.core.interfaces.Persistable;
 
 public class PersistentStore {
@@ -42,6 +41,9 @@ public class PersistentStore {
     public Persistable getItem(String key, Class type) {
         String jsonString = getSqliteDbHelper().selectFromKvStore(key);
         return (Persistable) getGson().fromJson(jsonString, type);
+    }
+    public void setItem(String key, String item, boolean replace) {
+        setItem(key, new StringWrapper(item), replace);
     }
 
     // Todo: Akshay - AndroidX Jetpack
