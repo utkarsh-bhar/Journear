@@ -23,6 +23,7 @@ import com.journear.app.R;
 import com.journear.app.core.JnGeocoder;
 import com.journear.app.core.entities.JnGeocodeItem;
 import com.journear.app.core.entities.NearbyDevices;
+import com.journear.app.p2p.WiFiServiceDiscoveryActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -93,8 +94,8 @@ public class CreateJourneyActivity extends AppCompatActivity {
 
                 devicesList.add(new NearbyDevices(source , Destination , timeOfTravel));
 
-                final Intent intent = new Intent(CreateJourneyActivity.this, JourneyViewActivity.class);
-                intent.putExtra("EXTRA", nd);
+                final Intent intent = new Intent(CreateJourneyActivity.this, WiFiServiceDiscoveryActivity.class);
+                intent.putExtra("newNearbyDeviceToAdd", nd);
 
                 //                Bundle args = new Bundle();
 //                args.putSerializable("ARRAYLIST", (Serializable)devicesList);

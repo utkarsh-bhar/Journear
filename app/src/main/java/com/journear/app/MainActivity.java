@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.journear.app.ui.CreateJourneyActivity;
+import com.journear.app.p2p.WiFiServiceDiscoveryActivity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, CreateJourneyActivity.class);
+//                Intent myIntent = new Intent(MainActivity.this, WiFiServiceDiscoveryActivity.class);
                 MainActivity.this.startActivity(myIntent);
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
@@ -54,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
+
+
     }
 
     @Override

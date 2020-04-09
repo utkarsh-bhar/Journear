@@ -108,6 +108,18 @@ public class NearbyDevices implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return "NearbyDevices{" +
+                "id=" + id +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", travelTime='" + travelTime + '\'' +
+                ", user_rating='" + user_rating + '\'' +
+                ", user1=" + user1 +
+                '}';
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeString(source);
