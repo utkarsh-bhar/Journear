@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.journear.app.JourneyViewActivity;
+import com.journear.app.MainActivity;
 import com.journear.app.R;
 import com.journear.app.core.JnGeocoder;
 import com.journear.app.core.PersistentStore;
@@ -114,9 +114,8 @@ public class CreateJourneyActivity extends AppCompatActivity {
                 PersistentStore.getInstance(CreateJourneyActivity.this).setItem("CurrentJourneyRequest",nd,true);
 
 
-                final Intent intent = new Intent(CreateJourneyActivity.this, JourneyViewActivity.class);
+                final Intent intent = new Intent(CreateJourneyActivity.this, MainActivity.class);
                 intent.putExtra("EXTRA", nd);
-
                 //                Bundle args = new Bundle();
 //                args.putSerializable("ARRAYLIST", (Serializable)devicesList);
 //

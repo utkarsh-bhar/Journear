@@ -1,7 +1,6 @@
 package com.journear.app.core.entities;
 
 
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -11,11 +10,11 @@ import java.io.Serializable;
 import java.sql.Time;
 
 public class NearbyDevices implements Parcelable, Persistable {
-        private int id;
-        private String source;
-        private String destination;
-        private Time travelTime;
-        private String user_rating;
+    private int id;
+    private String source;
+    private String destination;
+    private Time travelTime;
+    private String user_rating;
     private UserSkimmed user = new UserSkimmed();
 
     public UserSkimmed getUser() {
@@ -26,31 +25,32 @@ public class NearbyDevices implements Parcelable, Persistable {
         this.user = user;
     }
 
-        public NearbyDevices(){
+    public NearbyDevices() {
 
-        }
-        public NearbyDevices(String source,String destination, Time travelTime, String user_rating){
-            this.source = source;
-            this.destination = destination;
-            this.travelTime = travelTime;
-            this.user_rating = user_rating;
-        }
+    }
 
-      public NearbyDevices(String source,String destination, Time travelTime){
-            this.source = source;
-            this.destination = destination;
-            this.travelTime = travelTime;
+    public NearbyDevices(String source, String destination, Time travelTime, String user_rating) {
+        this.source = source;
+        this.destination = destination;
+        this.travelTime = travelTime;
+        this.user_rating = user_rating;
+    }
 
-        }
+    public NearbyDevices(String source, String destination, Time travelTime) {
+        this.source = source;
+        this.destination = destination;
+        this.travelTime = travelTime;
 
-        public NearbyDevices(int id, String source, String destination, Time travelTime, String user_rating){
-            this.id = id;
-            this.source = source;
-            this.destination = destination;
-            this.travelTime = travelTime;
-            this.user_rating = user_rating;
+    }
 
-        }
+    public NearbyDevices(int id, String source, String destination, Time travelTime, String user_rating) {
+        this.id = id;
+        this.source = source;
+        this.destination = destination;
+        this.travelTime = travelTime;
+        this.user_rating = user_rating;
+
+    }
 
 
     protected NearbyDevices(Parcel in) {
@@ -74,44 +74,48 @@ public class NearbyDevices implements Parcelable, Persistable {
     };
 
     public int getId() {
-            return id;
-        }
+        return id;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-        public String getSource() {
-            return source;
-        }
+    public String getSource() {
+        return source;
+    }
 
-        public void setSource(String source) {
-            this.source = source;
-        }
+    public void setSource(String source) {
+        this.source = source;
+    }
 
-        public String getDestination() {
-            return destination;
-        }
+    public String getDestination() {
+        return destination;
+    }
 
-        public void setDestination(String destination) {
-            this.destination = destination;
-        }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
-        public Time getTravelTime() {
-            return travelTime;
-        }
+    public Time getTravelTime() {
+        return travelTime;
+    }
 
-        public void setTravelTime(Time travelTime) {
-            this.travelTime = travelTime;
-        }
+    public void setTravelTime(String travelTime) {
+        setTravelTime(Time.valueOf(travelTime));
+    }
 
-        public String getUser_rating() {
-            return user_rating;
-        }
+    public void setTravelTime(Time travelTime) {
+        this.travelTime = travelTime;
+    }
 
-        public void setUser_rating(String user_rating) {
-            this.user_rating = user_rating;
-        }
+    public String getUser_rating() {
+        return user_rating;
+    }
+
+    public void setUser_rating(String user_rating) {
+        this.user_rating = user_rating;
+    }
 
 
     @Override
