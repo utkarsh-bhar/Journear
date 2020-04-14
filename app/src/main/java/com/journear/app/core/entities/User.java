@@ -1,26 +1,58 @@
 package com.journear.app.core.entities;
 
-public class User {
-    private int userID;
-    private int userRatings;
+import com.journear.app.core.interfaces.Persistable;
+
+public class User extends UserSkimmed implements Persistable {
+
+    public String email;
+    public String password;
+    public String phoneValue;
+    public String dobValue;
 
     public User(){
 
     }
 
-    public int getUserID() {
-        return userID;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserID(int userID) {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String userID;
+
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
-    public int getUserRatings() {
-        return userRatings;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserRatings(int userRatings) {
-        this.userRatings = userRatings;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getPhone() {
+        return phoneValue;
+    }
+
+    public void setPhoneValue(String phoneValue) {
+        this.phoneValue = phoneValue;
+    }
+
+    public String getDob() {
+        return dobValue;
+    }
+
+    public void setDobValue(String dobValue) {
+        this.dobValue = dobValue;
+    }
+
+
+
+
+
 }

@@ -5,33 +5,45 @@ package com.journear.app.core.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
+import com.journear.app.core.interfaces.Persistable;
 
-public class NearbyDevices implements Parcelable {
+import java.io.Serializable;
+import java.sql.Time;
+
+public class NearbyDevices implements Parcelable, Persistable {
         private int id;
         private String source;
         private String destination;
-        private String travelTime;
+        private Time travelTime;
         private String user_rating;
-        User user1 = new User();
+    private UserSkimmed user = new UserSkimmed();
+
+    public UserSkimmed getUser() {
+        return user;
+    }
+
+    public void setUser(UserSkimmed user) {
+        this.user = user;
+    }
+
         public NearbyDevices(){
 
         }
-        public NearbyDevices(String source,String destination, String travelTime, String user_rating){
+        public NearbyDevices(String source,String destination, Time travelTime, String user_rating){
             this.source = source;
             this.destination = destination;
             this.travelTime = travelTime;
             this.user_rating = user_rating;
         }
 
-      public NearbyDevices(String source,String destination, String travelTime){
+      public NearbyDevices(String source,String destination, Time travelTime){
             this.source = source;
             this.destination = destination;
             this.travelTime = travelTime;
 
         }
 
-        public NearbyDevices(int id, String source, String destination, String travelTime, String user_rating){
+        public NearbyDevices(int id, String source, String destination, Time travelTime, String user_rating){
             this.id = id;
             this.source = source;
             this.destination = destination;
@@ -45,7 +57,7 @@ public class NearbyDevices implements Parcelable {
 
         source = in.readString();
         destination = in.readString();
-        travelTime = in.readString();
+        travelTime = Time.valueOf(in.readString());
 
     }
 
@@ -85,11 +97,11 @@ public class NearbyDevices implements Parcelable {
             this.destination = destination;
         }
 
-        public String getTravelTime() {
+        public Time getTravelTime() {
             return travelTime;
         }
 
-        public void setTravelTime(String travelTime) {
+        public void setTravelTime(Time travelTime) {
             this.travelTime = travelTime;
         }
 
@@ -112,7 +124,7 @@ public class NearbyDevices implements Parcelable {
 
         dest.writeString(source);
         dest.writeString(destination);
-        dest.writeString(travelTime);
+        dest.writeString(travelTime.toString());
 
     }
 }

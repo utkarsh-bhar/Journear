@@ -39,12 +39,7 @@ public class JourneyViewActivity extends AppCompatActivity {
 
         devicesList = new ArrayList<>();
 
-        NearbyDevices dev = new NearbyDevices("Trinity College Dublin" , "Dublin Spire" , "8hours", "4.5");
-        NearbyDevices dev2 = new NearbyDevices("Ram Bhature Wala" , "Karol Bagh" , "8hours", "4.5");
-        NearbyDevices dev3 = new NearbyDevices(nd.getSource() , nd.getDestination() , nd.getTravelTime());
-        devicesList.add(dev);
-        devicesList.add(dev2);
-        devicesList.add(dev3);
+        devicesList.add(nd);
 
         //TODO Nikhil Sujit
         // devicesList = some source for the data.

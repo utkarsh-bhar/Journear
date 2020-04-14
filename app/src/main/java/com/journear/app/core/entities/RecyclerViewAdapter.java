@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
             holder.userName.setText(Build.MANUFACTURER);
             holder.source.setText(devices.getSource());
             holder.destination.setText(devices.getDestination());
-            holder.travelTime.setText(devices.getTravelTime());
+            holder.travelTime.setText(devices.getTravelTime().toString());
     }
 // one for just testing deviceslist.size()
     @Override
@@ -67,9 +67,26 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.ViewHolder>
             destination = devicesList.findViewById(R.id.destination);
             travelTime = devicesList.findViewById(R.id.travelTime);
 
-
-
-
         }
     }
+//
+//    @Override
+//    public void onClick(View v) {
+//
+//        int position;
+//        position = getAdapterPosition();
+//        Item item = itemList.get(position);
+//
+//        switch (v.getId()) {
+//            case R.id.editButton:
+//                //edit item
+//                editItem(item);
+//                break;
+//            case R.id.deleteButton:
+//                //delete item
+//                deleteItem(item.getId());
+//                break;
+//        }
+//
+//    }
 }
